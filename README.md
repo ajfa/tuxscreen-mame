@@ -28,6 +28,17 @@ keyboard and a serial console.
 - `tools/test-boot.sh` and `tools/console.py`: boot all four without a window,
   log in on the serial console and check that the system answers.
 
+## Windows
+
+`tools/build-mame-windows.sh` builds `tuxscreen.exe` with MSYS2 (MinGW64 gcc
+and a python.org Python 3). Pointing `GENERATED` at the `build/generated`
+folder of a Linux build of the same tree skips the layout compression, which
+takes about 40 minutes on Windows. Then, with the flash images built on Linux
+or WSL, `tools/make-windows-package.sh` makes `build-win/TuxScreen-Windows`:
+one launcher per system, a startup script that logs in and starts the desktop
+on the emulated IR keyboard, and a README (`pack/`). The launchers open a
+window (never full screen).
+
 ## Fixes outside the driver
 
 | Where | What |
